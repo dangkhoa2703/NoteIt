@@ -50,7 +50,7 @@ Simple note app to write and share note
 - Table of contents:
 	- created Users: username & password\
    		+ HungryRabbit | eatcarrot
-       		+ MuscleWhale | 100pushup
+  		+ MuscleWhale | 100pushup
  		+ ChillyAlligator | justchilling
 		+ FunnyBanana | iamyellow
   		+ SleepyCat | drinkcoffee
