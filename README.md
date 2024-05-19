@@ -52,8 +52,7 @@ Simple note app to write and share note
    		+ HungryRabbit | eatcarrot
        		+ MuscleWhale | 100pushup
  		+ ChillyAlligator | justchilling
-   		+ FunnyBanana | iamyellow
-     		+ SleepCat | drinkcoffee
-       		+ SleepyCat | drinkcoffee
+		+ FunnyBanana | iamyellow
+  		+ SleepyCat | drinkcoffee
 	- REST APIs URL:
  		+sd 	 
