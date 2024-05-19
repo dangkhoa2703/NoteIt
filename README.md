@@ -51,8 +51,8 @@ Simple note app to write and share note
 	- created Users: username & password\
    		+ HungryRabbit | eatcarrot
        		+ MuscleWhale | 100pushup
-       		+ SleepyCat | drinkcoffee
  		+ ChillyAlligator | justchilling
    		+ FunnyBanana | iamyellow
+       		+ SleepyCat | drinkcoffee
 	- REST APIs URL:
  		+sd 	 
