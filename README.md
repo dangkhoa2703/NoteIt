@@ -54,5 +54,5 @@ Simple note app to write and share note
 	     	- HungryRabbit | eatcarrot
        		- MuscleWhale | 100pushup
        		- SleepyCat | drinkcoffee
-        - REST APIs URL:
+- REST APIs URL:
 	 
