@@ -36,15 +36,16 @@ Simple note app to write and share note
 
 
 - How to install and run the app: 
-	1. Install IntelliJ IDEA (https://www.jetbrains.com/idea/download).
-	2. Install MySQL (https://dev.mysql.com/downloads/mysql).
-	3. Install MySQL Workbench (https://dev.mysql.com/downloads/workbench).
- 	4. Install Postman (https://www.postman.com/downloads/). 
+	1. Install IntelliJ IDEA [http](https://www.jetbrains.com/idea/download).
+	2. Install MySQL [http](https://dev.mysql.com/downloads/mysql).
+	3. Install MySQL Workbench [http](https://dev.mysql.com/downloads/workbench).
+ 	4. Install Postman [http](https://www.postman.com/downloads/). 
 	5. Open MySQL Workbench, login to localhost.
 	6. Open File -> Open SQL Script...
-	7. Open NoteIt\noteit\sql_script\02-Create_user.sql and execute file (yellow lightning bolt) to create new user.
-	8. Open NoteIt in IntelliJ and run the app.
-	9. Test the app in Postman
+	7. Open NoteIt\noteit\sql_script\01-Create_user.sql and execute file (yellow lightning bolt) to create new user.
+ 	8. Open NoteIt\noteit\sql_script\02-Note_it.sql and execute file to create DB
+	9. Open NoteIt in IntelliJ and run the app.
+	10. Test the app in Postman
 
 
 - Table of contents:
@@ -55,4 +56,12 @@ Simple note app to write and share note
 		+ FunnyBanana | iamyellow
   		+ SleepyCat | drinkcoffee
 	- REST APIs URL:
- 		+sd 	 
+ 		+ login: POST http://localhost:8080/api/v1/auth/authenticate
+   		+ register: POST  http://localhost:8080/api/v1/auth/register
+     		+ request all note: GET http://localhost:8080/api/v1/noteit
+       		+ request one note: GET http://localhost:8080/api/v1/noteit/{noteId}
+         	+ create new note: POST http://localhost:8080/api/v1/noteit
+          	+ edit a note: PUT http://localhost:8080/api/v1/noteit/{noteId}
+          	+ delete a note: DELETE http://localhost:8080/api/v1/noteit/{noteId}
+          	+ get a list of all user to share a note: GET http://localhost:8080/api/v1/noteit/share/{noteId}
+          	+ share a note with one user: PUT http://localhost:8080/api/v1/noteit/{noteId}/{userName} 
