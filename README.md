@@ -49,7 +49,7 @@ Simple note app to write and share note
 
 - Table of contents:
 	- created Users: username & password
- - ChillyAlligator | justchilling
+ 		- ChillyAlligator | justchilling
    		- FunnyBanana | iamyellow
 	     	- HungryRabbit | eatcarrot
        		- MuscleWhale | 100pushup
