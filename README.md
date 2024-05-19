@@ -53,6 +53,7 @@ Simple note app to write and share note
        		+ MuscleWhale | 100pushup
  		+ ChillyAlligator | justchilling
    		+ FunnyBanana | iamyellow
+     + SleepCat | drinkcoffee
        		+ SleepyCat | drinkcoffee
 	- REST APIs URL:
  		+sd 	 
