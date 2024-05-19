@@ -51,7 +51,7 @@ Simple note app to write and share note
 	- created Users: username & password
  		- ChillyAlligator | justchilling
    		- FunnyBanana | iamyellow
-     		- HungryRabbit | eatcarrot
+	     	- HungryRabbit | eatcarrot
        		- MuscleWhale | 100pushup
        		- SleepyCat | drinkcoffee
 	 
