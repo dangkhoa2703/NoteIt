@@ -36,10 +36,10 @@ Simple note app to write and share note
 
 
 - How to install and run the app: 
-	1. Install IntelliJ IDEA [http](https://www.jetbrains.com/idea/download).
-	2. Install MySQL [http](https://dev.mysql.com/downloads/mysql).
-	3. Install MySQL Workbench [http](https://dev.mysql.com/downloads/workbench).
- 	4. Install Postman [http](https://www.postman.com/downloads/). 
+	1. Install IntelliJ IDEA [here](https://www.jetbrains.com/idea/download).
+	2. Install MySQL [here](https://dev.mysql.com/downloads/mysql).
+	3. Install MySQL Workbench [here](https://dev.mysql.com/downloads/workbench).
+ 	4. Install Postman [here](https://www.postman.com/downloads/). 
 	5. Open MySQL Workbench, login to localhost.
 	6. Open File -> Open SQL Script...
 	7. Open NoteIt\noteit\sql_script\01-Create_user.sql and execute file (yellow lightning bolt) to create new user.
@@ -58,7 +58,7 @@ Simple note app to write and share note
 	- REST APIs URL:
  		+ login: POST http://localhost:8080/api/v1/auth/authenticate
    		+ register: POST  http://localhost:8080/api/v1/auth/register
-     		+ request all note: GET http://localhost:8080/api/v1/noteit
+  		+ request all note: GET http://localhost:8080/api/v1/noteit
        		+ request one note: GET http://localhost:8080/api/v1/noteit/{noteId}
          	+ create new note: POST http://localhost:8080/api/v1/noteit
           	+ edit a note: PUT http://localhost:8080/api/v1/noteit/{noteId}
