@@ -63,5 +63,5 @@ Simple note app to write and share note
   		+ create new note: POST http://localhost:8080/api/v1/noteit
   		+ edit a note: PUT http://localhost:8080/api/v1/noteit/{noteId}
   		+ delete a note: DELETE http://localhost:8080/api/v1/noteit/{noteId}
-    		+ get a list of all user to share a note: GET http://localhost:8080/api/v1/noteit/share/{noteId}
+		+ get a list of all user to share a note: GET http://localhost:8080/api/v1/noteit/share/{noteId}
    		+ share a note with one user: PUT http://localhost:8080/api/v1/noteit/{noteId}/{userName} 
