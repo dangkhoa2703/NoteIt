@@ -20,8 +20,7 @@ Simple note app to write and share note
    	+ Spring Boot: Framework for the application.
 	+ Spring Security: Authentication.
 	+ MySQL: Database.
-	+ Thymeleaf: Template Engines.
-	+ Bootstrap: CSS Framework.
+
 
 
 - Challenges:
@@ -40,11 +39,12 @@ Simple note app to write and share note
 	1. Install IntelliJ IDEA (https://www.jetbrains.com/idea/download).
 	2. Install MySQL (https://dev.mysql.com/downloads/mysql).
 	3. Install MySQL Workbench (https://dev.mysql.com/downloads/workbench).
-	4. Open MySQL Workbench, login to localhost.
-	5. Open File -> Open SQL Script...
-	6. Open NoteIt\noteit\sql_script\02-Create_user.sql and execute file (yellow lightning bolt) to create new user.
-	7. Open NoteIt in IntelliJ and run the app.
-	8. Open your browser and enter: http://localhost:8080/login
+ 	4. Install Postman (https://www.postman.com/downloads/). 
+	5. Open MySQL Workbench, login to localhost.
+	6. Open File -> Open SQL Script...
+	7. Open NoteIt\noteit\sql_script\02-Create_user.sql and execute file (yellow lightning bolt) to create new user.
+	8. Open NoteIt in IntelliJ and run the app.
+	9. Test the app in Postman
 
 
 - Table of contents:
@@ -54,3 +54,5 @@ Simple note app to write and share note
      	 - HungryRabbit | eatcarrot
        	- MuscleWhale | 100pushup
        	- SleepyCat | drinkcoffee
+       	- RestAPI:
+       		-	 
