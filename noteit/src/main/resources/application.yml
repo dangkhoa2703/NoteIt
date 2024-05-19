@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: noteit
+  datasource:
+    url: jdbc:mysql://localhost:3306/note_it
+    username: noteit
+    password: noteit
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+#    hibernate:
+#      ddl-auto: create-drop
+    show-sql: true
+
