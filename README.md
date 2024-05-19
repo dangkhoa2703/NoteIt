@@ -48,11 +48,11 @@ Simple note app to write and share note
 
 
 - Table of contents:
-	- created Users: username & password
- 		+ ChillyAlligator | justchilling
-   		+ FunnyBanana | iamyellow
-	     	+ HungryRabbit | eatcarrot
+	- created Users: username & password\
+   		+ HungryRabbit | eatcarrot
        		+ MuscleWhale | 100pushup
        		+ SleepyCat | drinkcoffee
+ 		+ ChillyAlligator | justchilling
+   		+ FunnyBanana | iamyellow
 	- REST APIs URL:
  		+sd 	 
