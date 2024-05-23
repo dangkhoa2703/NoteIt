@@ -33,7 +33,7 @@ public class AuthorizeCheck {
     }
 
     /**
-     * Check current whether current user is the author of or have access to the note.
+     * Check whether current user is the author of or have access to the note.
      *
      * @param noteId the note id
      * @return the boolean
@@ -48,5 +48,15 @@ public class AuthorizeCheck {
         Boolean isAuthor = Objects.equals(userId, note.getAuthor().getId());
         Boolean isShared = sharedUserId.contains(userId);
         return (isAuthor || isShared);
+    }
+
+    /**
+     * Check whether current user is the author of the note.
+     *
+     * @param noteId the note id
+     * @return the boolean
+     */
+    public boolean authorCheck(int noteId){
+        return noteService.isAuthor(noteId);
     }
 }
