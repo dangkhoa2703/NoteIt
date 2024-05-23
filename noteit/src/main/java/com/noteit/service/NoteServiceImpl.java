@@ -1,6 +1,7 @@
 package com.noteit.service;
 
 import com.noteit.dao.NoteRepository;
+import com.noteit.dto.NoteRepresentation;
 import com.noteit.entity.Note;
 import com.noteit.entity.User;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 import java.util.Objects;
@@ -49,14 +51,14 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public Note edit(Note theNote, int id) {
+    public Note edit(NoteRepresentation noteRep, int id) {
         Note editedNote = noteRepository.findById(id)
                 .map(note -> {
-                    note.setSubject(theNote.getSubject());
-                    note.setContent(theNote.getContent());
+                    note.setSubject(noteRep.getSubject());
+                    note.setContent(noteRep.getContent());
                     return noteRepository.save(note);
                 })
-                .orElseGet(() -> {return theNote;});
+                .orElseGet(null);
         return noteRepository.save(editedNote);
     }
 

@@ -80,20 +80,23 @@ public class NoteItController {
     /**
      * Create new note.
      *
-     * @param note the note
+     * @param noteRep the note
      */
     @PostMapping
-    public ResponseEntity<?> newNote(@RequestBody Note note) {
+    public ResponseEntity<?> newNote(@RequestBody NoteRepresentation noteRep) {
 
         User user = userService.findByUsername(
                 SecurityContextHolder.getContext().getAuthentication().getName());
+        Note note = new Note();
+        note.setSubject(noteRep.getSubject());
+        note.setContent(noteRep.getContent());
 
         // set author
         note.setAuthor(user);
-        noteService.save(note);
+        Note savedNote = noteService.save(note);
 
-        NoteRepresentation noteRep = new NoteRepresentation(note);
-        EntityModel<NoteRepresentation> entityModel = assembler.toModel(noteRep);
+        NoteRepresentation noteRepTemp = new NoteRepresentation(savedNote);
+        EntityModel<NoteRepresentation> entityModel = assembler.toModel(noteRepTemp);
 
         return ResponseEntity
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
@@ -103,17 +106,18 @@ public class NoteItController {
     /**
      * Edit a note.
      *
-     * @param note the note
+     * @param noteRep the note representation
      * @param id   the note id
      */
     @PreAuthorize("@authorizeCheck.authorCheck(#id)")
     @PutMapping("/{id}")
-    public ResponseEntity<?> editNote(@RequestBody Note note, @PathVariable int id) {
+    public ResponseEntity<?> editNote(@RequestBody NoteRepresentation noteRep, @PathVariable int id) {
 
-        Note editedNote = noteService.edit(note, id);
-        NoteRepresentation noteRep = new NoteRepresentation(editedNote);
 
-        EntityModel<NoteRepresentation> entityModel = assembler.toModel(noteRep);
+        Note editedNote = noteService.edit(noteRep, id);
+        NoteRepresentation noteRepTemp = new NoteRepresentation(editedNote);
+
+        EntityModel<NoteRepresentation> entityModel = assembler.toModel(noteRepTemp);
 
         return ResponseEntity
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())

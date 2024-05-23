@@ -34,7 +34,7 @@ public class NoteModelAssembler implements RepresentationModelAssembler<NoteRepr
         if(noteService.isAuthor(noteId)){
             return EntityModel.of(noteRepresentation,
             linkTo(methodOn(NoteItController.class).one(noteId)).withSelfRel(),
-                    linkTo(methodOn(NoteItController.class).editNote(note,noteId)).withRel("edit"),
+                    linkTo(methodOn(NoteItController.class).editNote(noteRepresentation,noteId)).withRel("edit"),
                     linkTo(methodOn(NoteItController.class).delete(noteId)).withRel("delete"),
                     linkTo(methodOn(NoteItController.class).share(noteId)).withRel("share"),
                     linkTo(methodOn(NoteItController.class).all()).withRel("notes"));
@@ -42,7 +42,7 @@ public class NoteModelAssembler implements RepresentationModelAssembler<NoteRepr
 
         return EntityModel.of(noteRepresentation,
                 linkTo(methodOn(NoteItController.class).one(noteRepresentation.getId())).withSelfRel(),
-                linkTo(methodOn(NoteItController.class).editNote(note,noteId)).withRel("edit"),
+                linkTo(methodOn(NoteItController.class).delete(noteId)).withRel("delete"),
                 linkTo(methodOn(NoteItController.class).all()).withRel("notes"));
     }
 

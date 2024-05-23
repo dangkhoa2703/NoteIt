@@ -1,5 +1,6 @@
 package com.noteit.service;
 
+import com.noteit.dto.NoteRepresentation;
 import com.noteit.entity.Note;
 import com.noteit.entity.User;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -38,11 +39,11 @@ public interface NoteService {
     /**
      * Edit note.
      *
-     * @param theNote the the note
+     * @param noteRep the note representation
      * @param id      the id
      * @return the note
      */
-    Note edit(Note theNote, int id);
+    Note edit(NoteRepresentation noteRep, int id);
 
     /**
      * Delete by id.

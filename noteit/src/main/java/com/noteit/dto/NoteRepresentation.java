@@ -17,12 +17,11 @@ import java.util.List;
 @Getter
 public class NoteRepresentation extends RepresentationModel<NoteRepresentation> {
 
-    @Getter
-    private final int id;
-    private final String subject;
-    private final String content;
-    private final String author;
-    private final List<String> shareWith;
+    private int id;
+    private String subject;
+    private String content;
+    private String author;
+    private List<String> shareWith;
 
 
     /**
@@ -44,6 +43,11 @@ public class NoteRepresentation extends RepresentationModel<NoteRepresentation> 
         } else {
             this.shareWith = new ArrayList<String>();
         }
+    }
+
+    public NoteRepresentation(String subject, String content){
+        this.subject = subject;
+        this.content = content;
     }
 
 }
