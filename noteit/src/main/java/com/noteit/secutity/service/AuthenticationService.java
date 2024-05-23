@@ -2,12 +2,14 @@ package com.noteit.secutity.service;
 
 import com.noteit.entity.Role;
 import com.noteit.entity.User;
+import com.noteit.exception_handler.custome_exception.UserNameAlreadyExistsException;
 import com.noteit.secutity.AuthenticationRequest;
 import com.noteit.secutity.AuthenticationResponse;
 import com.noteit.secutity.RegisterRequest;
 import com.noteit.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -32,7 +34,7 @@ public class AuthenticationService {
      * @param request the request
      * @return the authentication response
      */
-    public AuthenticationResponse register(RegisterRequest request) {
+    public AuthenticationResponse register(RegisterRequest request) throws UserNameAlreadyExistsException {
 
         User user = User.builder()
                 .username(request.getUsername())
@@ -55,7 +57,7 @@ public class AuthenticationService {
      * @param request the request
      * @return the authentication response
      */
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+    public AuthenticationResponse authenticate(AuthenticationRequest request) throws BadCredentialsException {
 
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -72,4 +74,5 @@ public class AuthenticationService {
                 .token(jwtToken)
                 .build();
     }
+
 }

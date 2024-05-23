@@ -6,10 +6,12 @@ import com.noteit.secutity.RegisterRequest;
 import com.noteit.secutity.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 
 /**
@@ -28,12 +30,12 @@ public class AuthenticationController {
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
             @RequestBody RegisterRequest request
-    ) {
+    ) throws Exception {
         return ResponseEntity.ok(service.register(request));
     }
 
     /**
-     * User registration.
+     * User authentication.
      */
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> register(
