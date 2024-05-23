@@ -2,8 +2,6 @@ package com.noteit.exception_handler;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
@@ -12,7 +10,7 @@ import java.util.Date;
 @Getter
 @Setter
 
-public class ErrorResponse  {
+public class CustomErrorResponse {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private Date timestamp;
@@ -27,11 +25,11 @@ public class ErrorResponse  {
 
     private Object data;
 
-    public ErrorResponse() {
+    public CustomErrorResponse() {
         timestamp = new Date();
     }
 
-    public ErrorResponse(
+    public CustomErrorResponse(
             HttpStatus httpStatus,
             String message
     ) {
@@ -42,7 +40,7 @@ public class ErrorResponse  {
         this.message = message;
     }
 
-    public ErrorResponse(
+    public CustomErrorResponse(
             HttpStatus httpStatus,
             String message,
             String stackTrace
@@ -55,7 +53,7 @@ public class ErrorResponse  {
         this.stackTrace = stackTrace;
     }
 
-    public ErrorResponse(
+    public CustomErrorResponse(
             HttpStatus httpStatus,
             String message,
             String stackTrace,
