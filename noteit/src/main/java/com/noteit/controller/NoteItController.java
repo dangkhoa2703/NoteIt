@@ -106,6 +106,7 @@ public class NoteItController {
      * @param note the note
      * @param id   the note id
      */
+    @PreAuthorize("@authorizeCheck.authorCheck(#id)")
     @PutMapping("/{id}")
     public ResponseEntity<?> editNote(@RequestBody Note note, @PathVariable int id) {
 
