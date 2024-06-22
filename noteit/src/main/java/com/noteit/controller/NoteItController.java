@@ -6,16 +6,20 @@ import com.noteit.dto.NoteRepresentation;
 import com.noteit.dto.ShareUserRepresentation;
 import com.noteit.entity.Note;
 import com.noteit.entity.User;
+import com.noteit.exception_handler.CustomErrorResponse;
 import com.noteit.secutity.AuthorizeCheck;
 import com.noteit.asssemble.NoteModelAssembler;
 import com.noteit.service.NoteService;
 import com.noteit.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.*;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
 
 import java.util.ArrayList;
@@ -111,9 +115,11 @@ public class NoteItController {
      */
     @PreAuthorize("@authorizeCheck.authorCheck(#id)")
     @PutMapping("/{id}")
-    public ResponseEntity<?> editNote(@RequestBody NoteRepresentation noteRep, @PathVariable int id) {
+    public ResponseEntity<?> editNote(@RequestBody NoteRepresentation noteRep, @PathVariable int id) throws HttpClientErrorException {
 
-
+        if(noteRep.getContent() == null || noteRep.getSubject() == null){
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST,"Missing note subject and/or note content");
+        }
         Note editedNote = noteService.edit(noteRep, id);
         NoteRepresentation noteRepTemp = new NoteRepresentation(editedNote);
 

@@ -8,6 +8,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.client.HttpClientErrorException;
 
 
 @ControllerAdvice
@@ -24,6 +25,14 @@ public class CustomControllerAdvice {
     @ExceptionHandler(UserNameAlreadyExistsException.class)
     public ResponseEntity<ErrorResponse> handleRegistrationException(Exception e){
         HttpStatus status = HttpStatus.CONFLICT;
+        ErrorResponse errorResponse = ErrorResponse.create(e,status,e.getMessage());
+
+        return new ResponseEntity<>( errorResponse, status);
+    }
+
+    @ExceptionHandler(HttpClientErrorException.class)
+    public ResponseEntity<ErrorResponse> handleBadRequestException(Exception e){
+        HttpStatus status = HttpStatus.BAD_REQUEST;
         ErrorResponse errorResponse = ErrorResponse.create(e,status,e.getMessage());
 
         return new ResponseEntity<>( errorResponse, status);
