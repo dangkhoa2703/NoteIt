@@ -3,6 +3,7 @@ package com.noteit.service;
 
 import com.noteit.entity.Note;
 import com.noteit.entity.User;
+import com.noteit.exception_handler.custome_exception.UserNameAlreadyExistsException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public interface UserService extends UserDetailsService {
      * @param theUser the the user
      * @return the user
      */
-    User save(User theUser);
+    User save(User theUser) throws UserNameAlreadyExistsException;
 
     /**
      * Find all list.

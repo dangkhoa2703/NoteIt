@@ -4,6 +4,7 @@ import com.noteit.dao.NoteItDao;
 import com.noteit.dao.UserRepository;
 import com.noteit.entity.Note;
 import com.noteit.entity.User;
+import com.noteit.exception_handler.custome_exception.UserNameAlreadyExistsException;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
@@ -35,8 +36,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User save(User theUser) {
-        return userRepository.save(theUser);
+    public User save(User theUser) throws UserNameAlreadyExistsException {
+        try {
+            findByUsername(theUser.getUsername());
+
+        } catch (UsernameNotFoundException e){
+            return userRepository.save(theUser);
+        }
+
+        throw new UserNameAlreadyExistsException("username already exists");
     }
 
     @Override

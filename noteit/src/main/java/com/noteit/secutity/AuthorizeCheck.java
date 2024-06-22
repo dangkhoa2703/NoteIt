@@ -2,11 +2,13 @@ package com.noteit.secutity;
 
 import com.noteit.entity.Note;
 import com.noteit.entity.User;
+import com.noteit.exception_handler.custome_exception.UnauthorizedException;
 import com.noteit.service.NoteService;
 import com.noteit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 import java.util.Objects;
@@ -38,7 +40,7 @@ public class AuthorizeCheck {
      * @param noteId the note id
      * @return the boolean
      */
-    public boolean check(int noteId) {
+    public boolean check(int noteId) throws UnauthorizedException {
         int userId = userService.findByUsername(
                 SecurityContextHolder.getContext().getAuthentication().getName()).getId();
         Note note = noteService.findById(noteId);
@@ -47,7 +49,10 @@ public class AuthorizeCheck {
 
         Boolean isAuthor = Objects.equals(userId, note.getAuthor().getId());
         Boolean isShared = sharedUserId.contains(userId);
-        return (isAuthor || isShared);
+        if(!(isAuthor || isShared)) {
+            throw new UnauthorizedException("Unauthorized user credentials");
+        }
+        return true;
     }
 
     /**
@@ -56,7 +61,10 @@ public class AuthorizeCheck {
      * @param noteId the note id
      * @return the boolean
      */
-    public boolean authorCheck(int noteId){
-        return noteService.isAuthor(noteId);
+    public boolean authorCheck(int noteId) throws UnauthorizedException{
+        if(!noteService.isAuthor(noteId)) {
+            throw new UnauthorizedException("Unauthorized user credentials");
+        }
+        return true;
     }
 }

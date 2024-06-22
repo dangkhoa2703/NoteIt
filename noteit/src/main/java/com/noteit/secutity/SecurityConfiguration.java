@@ -68,7 +68,7 @@ public class SecurityConfiguration {
     /**
      * Security filter chain .
      *
-     * @param http                   the http
+     * @param http the http
      * @param authenticationProvider the authentication provider
      * @return the security filter chain
      * @throws Exception the exception
